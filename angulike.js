@@ -129,8 +129,10 @@
                               });
                               return;
                           } else {
-                              element.html('<a href="https://twitter.com/share" class="twitter-share-button" data-text="' + scope.tweet + '" data-url="' + (scope.tweetUrl || $location.absUrl()) + '">Tweet</a>');
-                              $window.twttr.widgets.load(element.parent()[0]);
+                              if ($window.twttr.widgets) {
+	                          element.html('<a href="https://twitter.com/share" class="twitter-share-button" data-text="' + scope.tweet + '" data-url="' + (scope.tweetUrl || $location.absUrl()) + '">Tweet</a>');
+        	                  $window.twttr.widgets.load(element.parent()[0]);
+                              }
                           }
                       }
                   }
